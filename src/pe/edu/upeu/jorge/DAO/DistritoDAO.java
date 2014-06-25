@@ -6,10 +6,40 @@
 
 package pe.edu.upeu.jorge.DAO;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
+import pe.edu.upeu.jorge.config.Conexion;
+import pe.edu.upeu.jorge.modelo.Distrito;
+
 /**
  *
  * @author alum.fial7
  */
 public class DistritoDAO {
-    
+    private Connection cx;
+    private Statement st;
+    private ResultSet rs;
+    private String sql;
+     ArrayList<Distrito> lista =null;
+    public ArrayList<Distrito> listarDistrito(){
+        lista = new  ArrayList();
+        sql ="select * from distrito";
+        try {
+        cx = Conexion.getConex;
+        st=(Statement) cx.createStatement();
+        rs=st.executeQuery(sql); 
+        while(rs.next()){
+         Distrito d  = new Distrito();
+         d.setIdd(rs.getInt("iddistrito"));
+         d.setIdr(rs.getInt("idregion"));
+         d.setDisc(rs.getString("distrito"));
+         d.setEstado(rs.getString("estado"));
+         lista.add(d);
+        }
+        } catch (Exception e) {
+        }
+        return lista;
+    }
 }
