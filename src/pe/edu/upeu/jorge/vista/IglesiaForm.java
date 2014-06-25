@@ -82,6 +82,11 @@ DefaultComboBoxModel<Object> modelotipo = new DefaultComboBoxModel<>();
         jLabel4.setText("Cuenta");
 
         btncal.setText("calcular");
+        btncal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btncalActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -130,6 +135,11 @@ DefaultComboBoxModel<Object> modelotipo = new DefaultComboBoxModel<>();
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btncalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncalActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_btncalActionPerformed
 
     /**
      * @param args the command line arguments

@@ -6,10 +6,20 @@
 
 package pe.edu.upeu.jorge.DAO;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
 /**
  *
  * @author alum.fial7
  */
 public class IglesiaDAO {
+    private Connection cx;
+    private Statement st;
+    private ResultSet rs;
+    private String sql;
+    private int op;
+   
     
 }
