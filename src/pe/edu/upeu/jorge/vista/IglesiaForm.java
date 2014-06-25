@@ -73,9 +73,9 @@ DefaultComboBoxModel<Object> modelotipo = new DefaultComboBoxModel<>();
 
         jLabel2.setText("Tipo Iglesia");
 
-        cbodistrito.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbodistrito.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar" }));
 
-        cbotiglesia.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbotiglesia.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar" }));
 
         jLabel3.setText("Iglesia");
 
