@@ -6,17 +6,46 @@
 
 package pe.edu.upeu.jorge.vista;
 
+import java.util.ArrayList;
+import javax.swing.DefaultComboBoxModel;
+import pe.edu.upeu.jorge.DAO.DistritoDAO;
+import pe.edu.upeu.jorge.DAO.TipoIglesiaDAO;
+import pe.edu.upeu.jorge.modelo.Distrito;
+import pe.edu.upeu.jorge.modelo.TipoIglesia;
+
 /**
  *
  * @author alum.fial7
  */
 public class IglesiaForm extends javax.swing.JFrame {
-
+ArrayList<Distrito> lista1 = new ArrayList();
+ArrayList<TipoIglesia> lista2 = new ArrayList();
+DistritoDAO dA01= new DistritoDAO();
+TipoIglesiaDAO dA02= new TipoIglesiaDAO();
+DefaultComboBoxModel<Object> modelodistrito = new DefaultComboBoxModel<>();
+DefaultComboBoxModel<Object> modelotipo = new DefaultComboBoxModel<>();
     /**
      * Creates new form IglesiaForm
      */
     public IglesiaForm() {
         initComponents();
+        setLocationRelativeTo(null);
+    }
+    final void cargarDistrito(){
+    lista1 = dA01.listarDistrito();
+    modelodistrito.addElement("seleccionar distrito");
+    cbodistrito.setModel(modelodistrito);
+    for(int i=0;i<lista1.size();i++){
+    modelodistrito.addElement(lista1.get(i).getDisc());
+    }
+    }
+    final void cargartipoiglesia(){
+    lista2 = dA02.listarTipoIglesia();
+    modelodistrito.addElement("seleccionar distrito");
+    cbotiglesia.setModel(modelotipo);
+     for(int i=0;i<lista2.size();i++){
+    modelodistrito.addElement(lista2.get(i).getNomTipo());
+    }
     }
 
     /**
@@ -28,17 +57,75 @@ public class IglesiaForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        cbodistrito = new javax.swing.JComboBox();
+        cbotiglesia = new javax.swing.JComboBox();
+        jLabel3 = new javax.swing.JLabel();
+        txtigles = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        txtcuent = new javax.swing.JTextField();
+        btncal = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel1.setText("Distrito");
+
+        jLabel2.setText("Tipo Iglesia");
+
+        cbodistrito.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        cbotiglesia.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jLabel3.setText("Iglesia");
+
+        jLabel4.setText("Cuenta");
+
+        btncal.setText("calcular");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(62, 62, 62)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel1))
+                .addGap(36, 36, 36)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(txtcuent, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btncal, javax.swing.GroupLayout.DEFAULT_SIZE, 72, Short.MAX_VALUE))
+                    .addComponent(cbodistrito, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(cbotiglesia, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtigles))
+                .addContainerGap(65, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(cbodistrito, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cbotiglesia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addGap(30, 30, 30)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(txtigles, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(txtcuent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btncal))
+                .addContainerGap(210, Short.MAX_VALUE))
         );
 
         pack();
@@ -80,5 +167,14 @@ public class IglesiaForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btncal;
+    private javax.swing.JComboBox cbodistrito;
+    private javax.swing.JComboBox cbotiglesia;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JTextField txtcuent;
+    private javax.swing.JTextField txtigles;
     // End of variables declaration//GEN-END:variables
 }

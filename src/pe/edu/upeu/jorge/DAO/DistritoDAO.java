@@ -25,7 +25,7 @@ public class DistritoDAO {
      ArrayList<Distrito> lista =null;
     public ArrayList<Distrito> listarDistrito(){
         lista = new  ArrayList();
-        sql ="select * from distrito";
+        sql ="select * form distrito";
         try {
         cx = Conexion.getConex;
         st=(Statement) cx.createStatement();

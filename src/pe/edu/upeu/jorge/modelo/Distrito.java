@@ -57,5 +57,9 @@ public class Distrito {
     public void setEstado(String estado) {
         this.estado = estado;
     }
+
+    public Object getNomTipo() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }
